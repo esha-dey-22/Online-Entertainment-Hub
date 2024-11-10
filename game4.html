@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Ball Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            background-color: #87CEEB;
+        }
+
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            color: red;
+            font-weight: bold;
+        }
+
+        .scoreboard {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="500" height="500"></canvas>
+<div id="gameOver" class="game-over hidden">Game Over</div>
+<div id="scoreboard" class="scoreboard">
+    Score: <span id="score">0</span> | Max Score: <span id="maxScore">0</span>
+</div>
+
+<script>
+    // Get the canvas and context
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const gameOver = document.getElementById('gameOver');
+    const scoreElement = document.getElementById('score');
+    const maxScoreElement = document.getElementById('maxScore');
+
+    // Set up the game
+    const basketWidth = 80;
+    const basketHeight = 20;
+    let basketX = (canvas.width - basketWidth) / 2;
+    let basketSpeed = 5;
+    
+    // Ball variables
+    const ballRadius = 15;
+    let ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius;
+    let ballY = 0;
+    let ballSpeed = 2;
+
+    // Game state
+    let isGameOver = false;
+    let score = 0;
+    let maxScore = localStorage.getItem('maxScore') ? parseInt(localStorage.getItem('maxScore')) : 0;
+
+    // Display the maximum score
+    maxScoreElement.textContent = maxScore;
+
+    // Handle key press for basket movement
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' && basketX > 0) {
+            basketX -= basketSpeed;
+        } else if (event.key === 'ArrowRight' && basketX < canvas.width - basketWidth) {
+            basketX += basketSpeed;
+        }
+    });
+
+    // Draw the basket
+    function drawBasket() {
+        ctx.fillStyle = 'brown';
+        ctx.fillRect(basketX, canvas.height - basketHeight, basketWidth, basketHeight);
+    }
+
+    // Draw the falling ball
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    // Update the game state
+    function updateGame() {
+        if (isGameOver) return;
+
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Update ball position
+        ballY += ballSpeed;
+
+        // Check for collision with basket
+        if (ballY + ballRadius > canvas.height - basketHeight &&
+            ballX > basketX && ballX < basketX + basketWidth) {
+            // Ball caught, increase score
+            score++;
+            scoreElement.textContent = score;
+
+            // Reset the ball position
+            ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius;
+            ballY = 0;
+        }
+
+        // Check if the ball falls off the screen
+        if (ballY > canvas.height) {
+            // Game Over logic
+            isGameOver = true;
+            gameOver.classList.remove('hidden');
+
+            // Update max score if the current score is higher
+            if (score > maxScore) {
+                maxScore = score;
+                localStorage.setItem('maxScore', maxScore);
+                maxScoreElement.textContent = maxScore;
+            }
+        }
+
+        // Draw the basket and ball
+        drawBasket();
+        drawBall();
+
+        // Continue the game loop
+        if (!isGameOver) {
+            requestAnimationFrame(updateGame);
+        }
+    }
+
+    // Start the game
+    updateGame();
+</script>
+
+</body>
+</html>

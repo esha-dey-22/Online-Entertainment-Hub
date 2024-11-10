@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Entertainment Hub</title>
+    
+    <!-- Link Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link Tailwind CSS (via CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar Placeholder -->
+    <header id="header"></header>
+
+    <!-- Hero Section -->
+    <section class="hero bg-gray-800 text-white h-screen flex items-center justify-center fade-in">
+        <h1 class="text-5xl font-bold">Welcome to the Online Entertainment Hub</h1>
+    </section>
+
+    <!-- Content Sections -->
+    <main id="content" class="container my-5">
+        
+        <!-- Movies Section -->
+        <section id="movies" class="my-10">
+            <h2 class="text-4xl font-bold text-center my-5">Movies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Movie Card 1 -->
+                <div class="movie-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="assets/movie1.jpg" alt="Jaane Jaan" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">Jaane Jaan</h3>
+                        <p class="text-gray-600">A single mother and her daughter commit a crime and a neighbor helps them cover it up amid the police investigation.</p>
+                    </div>
+                </div>
+                <!-- Movie Card 2 -->
+                <div class="movie-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="assets/movie2.jpg" alt="Do Patti" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">Do Patti</h3>
+                        <p class="text-gray-600">Twin sisters harbouring deep secrets and a determined police inspector seeking to uncover the truth in an attempted murder case.</p>
+                    </div>
+                </div>
+                <!-- Movie Card 3 -->
+                <div class="movie-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="assets/movie3.jpg" alt="Ulajh" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">Ulajh</h3>
+                        <p class="text-gray-600">The journey of a young diplomat, belonging to a prominent family of patriots, who gets embroiled in a dangerous personal conspiracy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Music Section -->
+        <section id="music" class="my-10">
+            <h2 class="text-4xl font-bold text-center my-5">Music</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Music Album 1 -->
+                <div class="music-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="assets/music1.jpg" alt="Album 1" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">Dark</h3>
+                        <audio controls>
+                            <source src="assets/song1.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                <!-- Music Album 2 -->
+                <div class="music-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="assets/music2.jpg" alt="Album 2" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">Halloween</h3>
+                        <audio controls>
+                            <source src="assets/song2.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                <!-- Music Album 3 -->
+                <div class="music-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="assets/music3.jpg" alt="Album 3" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">Battle</h3>
+                        <audio controls>
+                            <source src="assets/song3.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <!-- Games Section -->
+        <section id="games" class="py-12 bg-gray-100">
+            <h2 class="text-3xl font-bold text-center mb-8">Featured Games</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Example Game Card -->
+                <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl">
+                    <img src="assets/game1.jpg" alt="Game 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Memory Match Game</h3>
+                        <p class="text-sm text-gray-600">Explore your memory!</p>
+                        <a href="games/game1.html" class="learn-more-btn bg-blue-500 text-white py-2 px-4 rounded mt-4 text-center inline-block">Learn More</a>
+                    </div>
+                </div>
+                <!-- Repeat game card for other games -->
+                <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl">
+                    <img src="assets/game2.jpg" alt="Game 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Space Adventure</h3>
+                        <p class="text-sm text-gray-600">Don't miss the target!</p>
+                        <a href="games/game2.html" class="learn-more-btn bg-blue-500 text-white py-2 px-4 rounded mt-4 text-center inline-block">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Game3 -->
+                <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl">
+                    <img src="assets/game3.jpg" alt="Game 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Adventure Island</h3>
+                        <p class="text-sm text-gray-600">Collect the treasure!</p>
+                        <a href="games/game3.html" class="learn-more-btn bg-blue-500 text-white py-2 px-4 rounded mt-4 text-center inline-block">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Game4 -->
+                <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl">
+                    <img src="assets/game4.jpg" alt="Game 4" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Catch the ball</h3>
+                        <p class="text-sm text-gray-600">Let's catch it!</p>
+                        <a href="games/game4.html" class="learn-more-btn bg-blue-500 text-white py-2 px-4 rounded mt-4 text-center inline-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer id="footer"></footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>

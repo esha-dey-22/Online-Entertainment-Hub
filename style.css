@@ -1,0 +1,89 @@
+/* Reset and Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('../assets/hero-bg.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+/* Fade-in Animation for Hero Text */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+/* Section Cards (Movies, Music, Games) */
+.movie-card, .music-card, .game-card {
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover, .music-card:hover, .game-card:hover {
+    transform: translateY(-5px); /* Adds a slight hover lift effect */
+}
+
+/* Image styling for responsiveness */
+.music-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Audio player styling */
+.music-card audio {
+    width: 100%; /* Make the audio player responsive */
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .music-card {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+
+/* Ensuring Images are Displayed in Original Size */
+.movie-card img, .music-card img, .game-card img {
+    width: auto;               /* Ensures image keeps its original width */
+    height: auto;              /* Ensures image keeps its original height */
+    max-width: 100%;           /* Prevents images from overflowing card */
+    max-height: 20vh;          /* Prevents images from overflowing card */
+    display: block;
+    margin: auto;              /* Centers image if it’s smaller than the card */
+}
+
+
+/* Play Button in Music Section */
+.play-btn {
+    transition: background-color 0.3s;
+}
+
+.play-btn:hover {
+    background-color: #004085; /* Darker shade on hover */
+}
+
+/* Basic Responsive Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem; /* Scales down hero title on smaller screens */
+    }
+
+    .music-card {
+        max-width: 100%;
+    }
+}

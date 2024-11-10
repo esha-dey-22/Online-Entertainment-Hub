@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #2D3748;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .card-flipped {
+            background-color: #3182CE;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-3xl font-bold">Memory Match Game</h1>
+    </header>
+
+    <div class="game-container">
+        <h2 class="text-xl font-semibold mt-4">Match the pairs!</h2>
+        <div class="grid mt-6" id="game-board">
+            <!-- Cards will be generated here -->
+        </div>
+        <button id="reset-btn" class="mt-6 bg-green-500 text-white py-2 px-4 rounded">Reset Game</button>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <p>&copy; 2024 Memory Match Game</p>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
